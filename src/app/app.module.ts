@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthFormComponent } from './auth/auth-form/auth-form.component';
-import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthFormComponent,
-    NavBarComponent,
+    NavbarComponent,
     FooterComponent
   ],
   imports: [
