@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
+
+  username: string = '';
+  password: string = '';
+  confirm: string = '';
+  email: string = '';
+  registerService: AuthService | undefined;
+
+  constructor() {
+    this.registerService = new AuthService();
+  }
+
+  register() {
+    this.registerService?.register(this.username, this.password, this.email);
+    this.username = '';
+    this.password = '';
+    this.confirm = '';
+    this.email = '';
+  }
+
 
 }
