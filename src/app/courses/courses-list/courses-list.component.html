@@ -1,1 +1,20 @@
-<p>courses-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let course of coursesList">
+      <div class="card">
+        <img class="card-img-top"
+          src="https://www.couplandleather.co.uk/cdn/shop/products/WhatsAppImage2022-01-14at14.46.57_3_1600x1066.jpg?v=1642188207"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="font-italic"><i>{{ course.author.first_name }} {{ course.author.last_name }}</i>
+          </p>
+          <p class="card-text">{{ course.desc }}
+          </p>
+          <a href="#" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
