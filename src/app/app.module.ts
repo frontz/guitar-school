@@ -11,6 +11,7 @@ import { CoursesListComponent } from './courses/courses-list/courses-list.compon
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { UserViewComponent } from './user/user-view/user-view.component';
 import { BasketComponent } from './shop/basket/basket.component';
+import { CoursesModule } from './courses/courses.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BasketComponent } from './shop/basket/basket.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    CoursesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

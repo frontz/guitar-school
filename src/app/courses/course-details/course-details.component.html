@@ -1,1 +1,10 @@
-<p>course-details works!</p>
+<div class="container">
+  <h2> {{ courseDetails.title }}</h2>
+  <h3> {{ courseDetails.author.first_name }} {{ courseDetails.author.last_name }}</h3>
+  <ng-container *ngFor="let module of courseDetails.modules">
+    <h4>{{ module.title }}</h4>
+    <ng-container *ngFor="let lesson of module.lessons; let isLast=last">
+      <h5 [ngStyle]="{'padding-bottom': isLast ? '20px' : '0px' }">{{ lesson.title }}</h5>
+    </ng-container>
+  </ng-container>
+</div>
