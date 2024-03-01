@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoursesService } from '../courses.service';
 
 @Component({
@@ -13,9 +13,9 @@ export class CoursesListComponent implements OnInit {
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    this.coursesList = this.coursesService.getCourses();
-    // this.coursesList = this.coursesService?.getCourses();
-    // console.log(this.coursesList);
+    this.coursesList = this.coursesService.getCourses().subscribe(data => {
+      this.coursesList = data;
+    });
   }
 
 }

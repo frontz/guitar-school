@@ -64,17 +64,15 @@ export class CoursesService {
       "lessons":[
         {"title":"Lekcja 27. Bonus - Mini kurs obsługi programu Guitar Pro","desc":"Lekcja 27. Bonus - Mini kurs obsługi programu Guitar Pro"}
       ]}]}
-      
+
   ]
 
 
   constructor(private http: HttpClient) { }
 
   getCourses() {
-    // return this.http.get('https://test.szkola-gitary.pl/api/course/').subscribe(data => {
-    //   console.log(data);
-    // });
-    return this.courses;
+    return this.http.get('https://test.szkola-gitary.pl/api/course/');
+    // return this.courses;
   }
 
   getCourseDetails() {
