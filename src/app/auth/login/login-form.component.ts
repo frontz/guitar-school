@@ -10,17 +10,17 @@ export class LoginFormComponent {
 
   username: string = '';
   password: string = '';
-  loginService: AuthService;
 
-  constructor() {
-    this.loginService = new AuthService();
+
+  constructor(private authService: AuthService) {
+
   }
 
 
-  login() {
-   this.loginService?.login(this.username, this.password);
-    this.username = '';
-    this.password = '';
+  login(user: string, pass: string) {
+    this.authService.login(user, pass).subscribe(data => {
+      console.log(data);
+    })
   }
 
 }

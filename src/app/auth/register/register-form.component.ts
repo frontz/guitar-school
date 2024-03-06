@@ -15,7 +15,7 @@ export class RegisterFormComponent {
   registerService: AuthService | undefined;
 
   constructor() {
-    this.registerService = new AuthService();
+   
   }
 
   register() {
