@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "../auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,22 @@ export class LoginFormComponent {
 
   username: string = '';
   password: string = '';
+  loginError = false;
 
-
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
 
   login(user: string, pass: string) {
-    this.authService.login(user, pass).subscribe(data => {
-      console.log(data);
-    })
+    this.authService.login(user, pass).subscribe(result => {
+      console.log(result);
+      this.router.navigate(['/my-courses']);
+    },
+      error => {
+        console.error(error);
+        this.loginError = true;
+      });
   }
 
 }

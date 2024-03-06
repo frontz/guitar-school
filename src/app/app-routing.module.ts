@@ -4,12 +4,14 @@ import { LoginFormComponent } from './auth/login/login-form.component';
 import {RegisterFormComponent} from "./auth/register/register-form.component";
 import { CoursesListComponent } from './courses/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
+import { UserViewComponent } from './user/user-view/user-view.component';
 
 const routes: Routes = [
   { path: 'login', component:  LoginFormComponent },
   { path: 'register', component:  RegisterFormComponent },
   { path: 'courses', component: CoursesListComponent },
-  { path: 'course/:id', component: CourseDetailsComponent }
+  { path: 'course/:id', component: CourseDetailsComponent },
+  { path: 'my-courses', component: UserViewComponent }
 ];
 
 @NgModule({

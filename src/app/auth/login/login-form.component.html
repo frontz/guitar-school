@@ -1,4 +1,5 @@
 <div class="container">
+
   <form (ngSubmit)="login(username, password)">
     <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1"
@@ -35,5 +36,7 @@
         Log in
       </button>
     </div>
+    <p *ngIf="loginError" class="text-danger">Incorrect login data...</p>
   </form>
+
 </div>
