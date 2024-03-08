@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -12,6 +11,8 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { UserViewComponent } from './user/user-view/user-view.component';
 import { BasketComponent } from './shop/basket/basket.component';
 import { CoursesModule } from './courses/courses.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { CoursesModule } from './courses/courses.module';
     AuthModule,
     CoursesModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

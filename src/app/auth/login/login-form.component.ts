@@ -13,9 +13,7 @@ export class LoginFormComponent {
   password: string = '';
   loginError = false;
 
-  constructor(private authService: AuthService, private router: Router) {
-
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
 
   login(user: string, pass: string) {
@@ -28,5 +26,7 @@ export class LoginFormComponent {
         this.loginError = true;
       });
   }
+
+  
 
 }
