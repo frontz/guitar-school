@@ -81,3 +81,7 @@ body {
   font-weight: 600;
   color: #fff;
 }
+
+.modal-title {
+  margin-bottom: 20px;
+}

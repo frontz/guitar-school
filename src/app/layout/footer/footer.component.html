@@ -3,6 +3,40 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div>
+        <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Join for newsletter</button>
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Join for newsletter</h4>
+                </div>
+                <div class="modal-body">
+                  <form (ngSubmit)="joinTheNews(name, email)">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                      <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name" required minlength="3"/>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                      <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" />
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <button type="submit" class="btn btn-info" aria-label="Join">
+                        Join!
+                      </button>
+                    </div>
+                    <p class="text-success" *ngIf="success">You have joined the news!</p>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="footer_menu">
           <ul>
             <li><a href="#">Home</a></li>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {LoginFormComponent} from "./login/login-form.component";
 import {RegisterFormComponent} from "./register/register-form.component";
 import {FormsModule} from "@angular/forms";
-import {AuthService} from "./auth.service";
+import {AuthService} from "../services/auth.service";
 
 @NgModule({
   declarations: [

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserCoursesService } from '../user-courses.service';
 
 @Component({
-  selector: 'app-user-view',
-  templateUrl: './user-view.component.html',
-  styleUrls: ['./user-view.component.css']
+  selector: 'app-user-courses-list',
+  templateUrl: './user-courses-list.component.html',
+  styleUrls: ['./user-courses-list.component.css']
 })
-export class UserViewComponent implements OnInit {
+export class UserCoursesListComponent implements OnInit {
 
   constructor(private userCoursesService: UserCoursesService) {}
 

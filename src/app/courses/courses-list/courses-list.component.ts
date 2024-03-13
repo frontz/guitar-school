@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CoursesService } from '../courses.service';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-courses-list',

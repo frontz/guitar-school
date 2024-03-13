@@ -27,7 +27,7 @@ export class AuthService {
   }
 // 'https://test.szkola-gitary.pl/api/login/'
   public login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/login/`, {"username": username, "password": password})
+    return this.http.post<any>(`${environment.apiUrl}/user/login/`, {"username": username, "password": password})
     .pipe(map(user => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 user.authdata = window.btoa(username + ':' + password);

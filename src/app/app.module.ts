@@ -8,11 +8,12 @@ import {AuthModule} from "./auth/auth.module";
 import { AboutComponent } from './about/about.component';
 import { CoursesListComponent } from './courses/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
-import { UserViewComponent } from './user/user-view/user-view.component';
+import { UserCoursesListComponent } from './user/user-courses-list/user-courses-list.component';
 import { BasketComponent } from './shop/basket/basket.component';
 import { CoursesModule } from './courses/courses.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
     AboutComponent,
     CoursesListComponent,
     CourseDetailsComponent,
-    UserViewComponent,
+    UserCoursesListComponent,
     BasketComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AuthModule,
     CoursesModule
