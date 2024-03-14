@@ -18,11 +18,11 @@ export class CourseDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.courseId = this.activatedRoute.snapshot.paramMap.get('id');
      if (this.courseId) {
-      this.getDetail();
+      this.getDetails();
     }
   }
 
-  getDetail() {
+  getDetails  () {
     this.coursesService.getCourseDetails(this.courseId)
     .subscribe(data => {
       this.courseDetails = data;

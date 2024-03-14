@@ -14,6 +14,7 @@ import { CoursesModule } from './courses/courses.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
 import { FormsModule } from '@angular/forms';
+import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     CourseDetailsComponent,
     UserCoursesListComponent,
     BasketComponent,
+    UserCourseDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserCoursesService {
 
+  api = 'https://test.szkola-gitary.pl/api';
+
   constructor(private http: HttpClient) { }
 
   getMyCourses() {
-    return this.http.get(`${environment.apiUrl}/mycourse/`);
+    return this.http.get(`${this.api}/mycourse/`);
   }
 
-
+  getMyCourseDetails(id: number) {
+    return this.http.get(`${this.api}/mycourse/${id}/`);
+  }
 
 }
