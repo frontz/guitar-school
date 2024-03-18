@@ -11,6 +11,8 @@ export class UserCourseDetailsComponent implements OnInit {
 
   courseDetails: any;
   courseId: any;
+  currentPage = 1;
+  disabled = true;
 
   constructor(private userCoursesService: UserCoursesService, private activatedRoute: ActivatedRoute) {}
 
@@ -27,6 +29,23 @@ export class UserCourseDetailsComponent implements OnInit {
       this.courseDetails = data;
       console.log(this.courseDetails);
     });
+  }
+
+  setModulePage(pageNr: number) {
+    this.currentPage = pageNr;
+    console.log(this.currentPage);
+  }
+
+  incrementModulePage() {
+    if (this.currentPage < this.courseDetails.modules.length) {
+      this.currentPage = this.currentPage + 1;
+    };
+  }
+
+  decrementModulePage() {
+    if (this.currentPage > 0) {
+      this.currentPage = this.currentPage - 1;
+    };
   }
 
 }

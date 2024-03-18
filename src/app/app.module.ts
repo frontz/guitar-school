@@ -12,7 +12,7 @@ import { UserCoursesListComponent } from './user/user-courses-list/user-courses-
 import { BasketComponent } from './shop/basket/basket.component';
 import { CoursesModule } from './courses/courses.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
+import { JwtInterceptor } from './helpers/jwt-auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 
@@ -36,7 +36,7 @@ import { UserCourseDetailsComponent } from './user/user-course-details/user-cour
     CoursesModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
 
 
   ],

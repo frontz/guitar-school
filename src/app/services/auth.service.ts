@@ -13,6 +13,8 @@ export class AuthService {
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
 
+  auth_token: any;
+
   constructor(private http: HttpClient, private router: Router)  {
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
     this.user = this.userSubject.asObservable();
@@ -23,17 +25,20 @@ export class AuthService {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders(
+      {'Content-Type': 'application/json'}
+      )
   }
 // 'https://test.szkola-gitary.pl/api/login/'
   public login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/user/login/`, {"username": username, "password": password})
-    .pipe(map(user => {
+    return this.http.post<any>(`${environment.apiUrl}/token/`, {"username": username,  "password": password}, {headers: this.httpOptions.headers})
+    .pipe(map(res => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-                user.authdata = window.btoa(username + ':' + password);
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
+                // user.authdata = window.btoa(username + ':' + password);
+                // localStorage.setItem('access_token', JSON.stringify(user.authdata));
+                // this.userSubject.next(user);
+                // return user;
+                localStorage.setItem('access_token', res.access);
             }));
   }
 
