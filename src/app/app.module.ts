@@ -36,9 +36,7 @@ import { UserCourseDetailsComponent } from './user/user-course-details/user-cour
     CoursesModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-
-
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
