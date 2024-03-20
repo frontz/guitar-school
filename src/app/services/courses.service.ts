@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,11 @@ export class CoursesService {
 
   constructor(private http: HttpClient) { }
 
-  api = 'https://test.szkola-gitary.pl/api';
-
   getCourses() {
-    return this.http.get(`${this.api}/course/`);
+    return this.http.get(`${environment.apiUrl}/course/`);
   }
 
   getCourseDetails(id: number) {
-    return this.http.get(`${this.api}/course/${id}/`);
+    return this.http.get(`${environment.apiUrl}/course/${id}/`);
   }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,13 @@ export class UserCoursesService {
   constructor(private http: HttpClient, private authSevice: AuthService) { }
 
   getMyCourses() {
-    const token = localStorage.getItem('access_token');
-    return this.http.get(`${this.api}/mycourse/`, { headers: { 'Authorization': `Bearer ${token}` } })
+    return this.http.get(`${environment.apiUrl}/mycourse/`)
     .pipe(
       catchError(error => {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              const newToken = localStorage.getItem('access_token');
-              return this.http.get(`${this.api}/mycourse/`, { headers: { 'Authorization': `Bearer ${newToken}` } });
+              return this.http.get(`${this.api}/mycourse/`);
             })
           );
         } else {
@@ -32,15 +31,13 @@ export class UserCoursesService {
   }
 
   getMyCourseDetails(id: number) {
-    const token = localStorage.getItem('access_token');
-    return this.http.get(`${this.api}/mycourse/${id}/`, { headers: { 'Authorization': `Bearer ${token}` }})
+    return this.http.get(`${environment.apiUrl}/mycourse/${id}/`)
     .pipe(
       catchError(error => {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              const newToken = localStorage.getItem('access_token');
-              return this.http.get(`${this.api}/mycourse/`, { headers: { 'Authorization': `Bearer ${newToken}` } });
+              return this.http.get(`${this.api}/mycourse/`);
             })
           );
         } else {

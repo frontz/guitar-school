@@ -29,15 +29,10 @@ export class AuthService {
       {'Content-Type': 'application/json'}
       )
   }
-// 'https://test.szkola-gitary.pl/api/login/'
+
   public login(username: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/token/`, {"username": username,  "password": password}, {headers: this.httpOptions.headers})
     .pipe(map(res => {
-                // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-                // user.authdata = window.btoa(username + ':' + password);
-                // localStorage.setItem('access_token', JSON.stringify(user.authdata));
-                // this.userSubject.next(user);
-                // return user;
                 console.log(res);
                 localStorage.setItem('access_token', res.access);
                 localStorage.setItem('refresh_token', res.refresh);
@@ -60,8 +55,6 @@ export class AuthService {
   }
 
   logout() {
-        // return this.http.get<any>(`${environment.apiUrl}/user/logout/`);
-        // remove user from local storage to log user out
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         this.userSubject.next(null);
