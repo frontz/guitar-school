@@ -9,8 +9,6 @@ import { environment } from '../environments/environment';
 })
 export class UserCoursesService {
 
-  api = 'https://test.szkola-gitary.pl/api';
-
   constructor(private http: HttpClient, private authSevice: AuthService) { }
 
   getMyCourses() {
@@ -20,7 +18,7 @@ export class UserCoursesService {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              return this.http.get(`${this.api}/mycourse/`);
+              return this.http.get(`${environment.apiUrl}/mycourse/`);
             })
           );
         } else {
@@ -37,7 +35,7 @@ export class UserCoursesService {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              return this.http.get(`${this.api}/mycourse/`);
+              return this.http.get(`${environment.apiUrl}/mycourse/`);
             })
           );
         } else {

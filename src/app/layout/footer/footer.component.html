@@ -8,7 +8,7 @@
           <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
                   <h4 class="modal-title">Join for newsletter</h4>
                 </div>
                 <div class="modal-body">
@@ -31,7 +31,7 @@
                     <p class="text-success" *ngIf="success">You have joined the news!</p>
                   </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer bg-info">
                   <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
                 </div>
               </div>
@@ -40,7 +40,8 @@
         <div class="footer_menu">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Our Curses</a></li>
+            <li><a [routerLink]="'/courses'"
+              >Our Curses</a></li>
             <li><a href="#">Pricing</a></li>
             <li><a href="#">Contact</a></li>
           </ul>

@@ -10,19 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private userSubject: BehaviorSubject<User | null>;
-  public user: Observable<User | null>;
 
   auth_token: any;
 
-  constructor(private http: HttpClient, private router: Router)  {
-    this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
-    this.user = this.userSubject.asObservable();
-   }
-
-  public get userValue() {
-    return this.userSubject.value;
-  }
+  constructor(private http: HttpClient, private router: Router)  {}
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -57,7 +48,6 @@ export class AuthService {
   logout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        this.userSubject.next(null);
         this.router.navigate(['/login']);
     }
 }

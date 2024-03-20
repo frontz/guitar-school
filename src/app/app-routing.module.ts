@@ -9,6 +9,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 
 const routes: Routes = [
+  { path: '', component:  CoursesListComponent },
   { path: 'login', component:  LoginFormComponent },
   { path: 'register', component:  RegisterFormComponent },
   { path: 'courses', component: CoursesListComponent },
