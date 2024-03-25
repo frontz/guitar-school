@@ -12,13 +12,15 @@ export class UserCoursesService {
   constructor(private http: HttpClient, private authSevice: AuthService) { }
 
   getMyCourses() {
-    return this.http.get(`${environment.apiUrl}/mycourse/`)
+    let token = localStorage.getItem('access_token');
+    return this.http.get(`${environment.apiUrl}/mycourse/`, {headers: {'Authorization': `Bearer ${token}` }})
     .pipe(
       catchError(error => {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              return this.http.get(`${environment.apiUrl}/mycourse/`);
+              let newToken = localStorage.getItem('access_token');
+              return this.http.get(`${environment.apiUrl}/mycourse/`, {headers: {'Authorization': `Bearer ${newToken}` }});
             })
           );
         } else {
@@ -29,13 +31,15 @@ export class UserCoursesService {
   }
 
   getMyCourseDetails(id: number) {
-    return this.http.get(`${environment.apiUrl}/mycourse/${id}/`)
+    let token = localStorage.getItem('access_token');
+    return this.http.get(`${environment.apiUrl}/mycourse/${id}/`, {headers: {'Authorization': `Bearer ${token}` }})
     .pipe(
       catchError(error => {
         if (error.status === 401) {
           return this.authSevice.refreshToken().pipe(
             switchMap(() => {
-              return this.http.get(`${environment.apiUrl}/mycourse/`);
+              let newToken = localStorage.getItem('access_token');
+              return this.http.get(`${environment.apiUrl}/mycourse/`, {headers: {'Authorization': `Bearer ${newToken}` }});
             })
           );
         } else {

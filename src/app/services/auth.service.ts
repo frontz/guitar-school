@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { User } from '../models';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
@@ -39,6 +39,25 @@ export class AuthService {
       },
       catchError(error => throwError(error))
     ));
+  }
+
+  getInfo() {
+    let token = localStorage.getItem('access_token');
+    return this.http.get<any>(`${environment.apiUrl}/user/info/`, {headers: {'Authorization': `Bearer ${token}` }})
+    .pipe(
+      catchError(error => {
+        if (error.status === 401) {
+          return this.refreshToken().pipe(
+            switchMap(() => {
+              let newToken = localStorage.getItem('access_token');
+              return this.http.get(`${environment.apiUrl}/user/info/`, {headers: {'Authorization': `Bearer ${newToken}` }});
+            })
+          );
+        } else {
+          return throwError(error);
+        }
+      })
+    )
   }
 
   register(user: string, pass: string, email: string): void {

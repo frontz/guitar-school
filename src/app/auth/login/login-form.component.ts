@@ -21,6 +21,7 @@ export class LoginFormComponent {
     this.authService.login(user, pass).subscribe(result => {
       console.log(result);
       this.router.navigate(['/my-courses']);
+      window.location.reload();
     },
       error => {
         console.error(error);

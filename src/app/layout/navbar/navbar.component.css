@@ -13,13 +13,13 @@ nav {
 
 .label-warning[href],
 .badge-warning[href] {
-  background-color: #eaec64;
+  background-color: #ffffff;
 }
 
 #lblCartCount {
   font-size: 12px;
   background: #2297b4;
-  color: #a6a823;
+  color: #ffffff;
   padding: 0 7px;
   vertical-align: top;
   margin-left: -10px;
