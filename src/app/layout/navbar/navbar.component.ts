@@ -1,5 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,13 +8,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent  {
 
+  user: string | null = '';
+
   constructor(private authService: AuthService) {}
 
   getCurrentUser() {
-    let user = localStorage.getItem('user');
-    return user;
+    this.user = localStorage.getItem('user');
+    return this.user;
   }
-
 
   logout() {
     this.authService.logout();

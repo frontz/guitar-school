@@ -16,6 +16,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="'/courses'">Our courses</a>
@@ -32,15 +33,13 @@
             Pricing
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Subscribe plan</a></li>
+            <li><a class="dropdown-item" href="#">Promotions</a></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-disabled="true">Contact</a>
+          <a class="nav-link" [routerLink]="'/contact'">Contact</a>
         </li>
 
       </ul>
@@ -49,9 +48,10 @@
           <i class="bi bi-person-fill"><span> {{ getCurrentUser() }} </span></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="'/login'">Login</a></li>
-          <li><a class="dropdown-item" [routerLink]="'/register'">Register</a></li>
-          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Logout</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/login'" *ngIf="user === null">Login</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/register'" *ngIf="user === null">Register</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/my-courses'" *ngIf="user !== null">My courses</a></li>
+          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;" *ngIf="user !== null">Logout</a></li>
         </ul>
       </div>
       <a class="nav-link" href="#" role="button" aria-expanded="false">

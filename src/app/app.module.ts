@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt-auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserCourseDetailsComponent } from './user/user-course-details/user-cour
     UserCoursesListComponent,
     BasketComponent,
     UserCourseDetailsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
