@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, map, switchMap, throwError } from 'rxjs';
-import { User } from '../models';
+import { Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
 
@@ -13,7 +12,8 @@ export class AuthService {
 
   auth_token: any;
 
-  constructor(private http: HttpClient, private router: Router)  {}
+  constructor(private http: HttpClient, private router: Router)  {
+  }
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -27,6 +27,7 @@ export class AuthService {
                 console.log(res);
                 localStorage.setItem('access_token', res.access);
                 localStorage.setItem('refresh_token', res.refresh);
+                localStorage.setItem('user', username);
             }));
   }
 
@@ -41,9 +42,9 @@ export class AuthService {
     ));
   }
 
-  getInfo() {
+  getUser() {
     let token = localStorage.getItem('access_token');
-    return this.http.get<any>(`${environment.apiUrl}/user/info/`, {headers: {'Authorization': `Bearer ${token}` }})
+    return this.http.get(`${environment.apiUrl}/user/info/`, {headers: {'Authorization': `Bearer ${token}` }})
     .pipe(
       catchError(error => {
         if (error.status === 401) {
@@ -60,6 +61,7 @@ export class AuthService {
     )
   }
 
+
   register(user: string, pass: string, email: string): void {
     console.log(user, pass, email);
   }
@@ -67,6 +69,7 @@ export class AuthService {
   logout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
+        localStorage.removeItem('user');
         this.router.navigate(['/login']);
     }
 }

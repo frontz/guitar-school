@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -16,19 +15,14 @@ export class LoginFormComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-
   login(user: string, pass: string) {
     this.authService.login(user, pass).subscribe(result => {
       console.log(result);
       this.router.navigate(['/my-courses']);
-      window.location.reload();
     },
       error => {
         console.error(error);
         this.loginError = true;
       });
   }
-
-
-
 }
