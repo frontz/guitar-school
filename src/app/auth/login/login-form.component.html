@@ -1,41 +1,48 @@
 <div class="container">
 
-  <form (ngSubmit)="login(username, password)">
-    <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1"
-    ><i class="bi bi-person-fill"></i
-    ></span>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Username"
-        name="user"
-        [(ngModel)]="username"
-      />
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+    <form (ngSubmit)="login(username, password)">
+      <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"
+      ><i class="bi bi-person-fill"></i
+      ></span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          name="user"
+          [(ngModel)]="username"
+        />
+      </div>
+  
+      <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2"
+      ><i class="bi bi-lock-fill"></i
+      ></span>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          name="pass"
+          [(ngModel)]="password"
+        />
+      </div>
+  
+      <div class="input-group mb-3">
+        <button
+          type="submit"
+          class="btn btn-info"
+          aria-label="Login"
+        >
+          Log in
+        </button>
+      </div>
+      <p *ngIf="loginError" class="text-danger">Incorrect login data...</p>
+      </form>
     </div>
+  </div>
 
-    <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon2"
-    ><i class="bi bi-lock-fill"></i
-    ></span>
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Password"
-        name="pass"
-        [(ngModel)]="password"
-      />
-    </div>
-
-    <div class="input-group mb-3">
-      <button
-        type="submit"
-        class="btn btn-info"
-        aria-label="Login"
-      >
-        Log in
-      </button>
-    </div>
-    <p *ngIf="loginError" class="text-danger">Incorrect login data...</p>
-    </form>
+  
 </div>
