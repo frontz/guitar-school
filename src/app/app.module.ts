@@ -16,6 +16,8 @@ import { JwtInterceptor } from './helpers/jwt-auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 import { ContactComponent } from './contact/contact/contact.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ContactComponent } from './contact/contact/contact.component';
     CoursesModule
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
