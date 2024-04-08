@@ -1,8 +1,25 @@
 <div class="container">
-  <h3>Moje kursy</h3>
-  <ul class="list-group">
-    <a *ngFor="let myCourse of myCourses; let i = index" routerLink="/my-course/{{ myCourse.id }}">{{ i+1 }} - <b>{{
-        myCourse.title }}</b></a>
-  </ul>
+  <h3 *ngIf="myCourses.length > 0; else noCourses">My courses</h3>
+  <ng-template #noCourses><h4>You haven't bought any courses yet</h4></ng-template>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let myCourse of myCourses">
+      <div class="card">
+        <img class="card-img-top" *ngIf="myCourse?.image?.url !== null" style="max-height: 270px;"
+          src="{{ myCourse?.image?.url }}"
+          alt="Course image">
+          <img class="card-img-top" *ngIf="myCourse?.image === null" style="max-height: 270px;"
+          src="https://www.couplandleather.co.uk/cdn/shop/products/WhatsAppImage2022-01-14at14.46.57_3_1600x1066.jpg?v=1642188207"
+          alt="Course image">
+        <div class="card-body">
+          <h5 class="card-title">{{ myCourse?.title }}</h5>
+          <p class="font-italic"><i>{{ myCourse?.author.first_name }} {{ myCourse?.author.last_name }}</i>
+          <p>Level: {{ myCourse?.level }}</p>
+          <p class="card-text">{{ myCourse?.desc }}
+          </p>
+          <a class="btn btn-primary" routerLink="/my-course/{{ myCourse.id }}">Go to course</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
