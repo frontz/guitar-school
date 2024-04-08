@@ -20,7 +20,10 @@
           src='https://www.youtube.com/embed/tNO9SWEjoIU'>
           </iframe>
           <ul>
-            <a href='{{m.url}}' *ngFor="let m of lesson.media"> {{ m.filename }} <br></a>
+            <ng-container *ngFor="let m of lesson.media">
+              <a href='{{m.url}}' *ngIf="m.type == 'zip'"> {{ m.filename }} <br></a>
+              <a href='{{m.url}}' target ="_blank" *ngIf="m.type == 'pdf'"> {{ m.filename }} <br></a>
+            </ng-container>
           </ul>
         </div>
       </div>
