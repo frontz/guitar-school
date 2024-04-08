@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserCoursesService } from 'src/app/services/user-courses.service';
 
@@ -7,7 +7,7 @@ import { UserCoursesService } from 'src/app/services/user-courses.service';
   templateUrl: './user-course-details.component.html',
   styleUrls: ['./user-course-details.component.css']
 })
-export class UserCourseDetailsComponent implements OnInit {
+export class UserCourseDetailsComponent implements AfterViewInit {
 
   courseDetails: any;
   courseId: any;
@@ -16,7 +16,7 @@ export class UserCourseDetailsComponent implements OnInit {
 
   constructor(private userCoursesService: UserCoursesService, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.courseId = this.activatedRoute.snapshot.paramMap.get('id');
      if (this.courseId) {
       this.getDetails();
@@ -36,16 +36,5 @@ export class UserCourseDetailsComponent implements OnInit {
     console.log(this.currentPage);
   }
 
-  incrementModulePage() {
-    if (this.currentPage < this.courseDetails.modules.length) {
-      this.currentPage = this.currentPage + 1;
-    };
-  }
-
-  decrementModulePage() {
-    if (this.currentPage > 0) {
-      this.currentPage = this.currentPage - 1;
-    };
-  }
-
 }
+
