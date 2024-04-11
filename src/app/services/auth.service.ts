@@ -22,18 +22,18 @@ export class AuthService {
   }
 
   public login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/token/`, {"username": username,  "password": password}, {headers: this.httpOptions.headers})
+    return this.http.post<any>(`${environment.apiUrl}/user/token/`, {"username": username,  "password": password}, {headers: this.httpOptions.headers})
     .pipe(map(res => {
                 console.log(res);
                 localStorage.setItem('access_token', res.access);
                 localStorage.setItem('refresh_token', res.refresh);
-                localStorage.setItem('user', username);
+                localStorage.setItem('user', res.user.first_name);
             }));
   }
 
-  refreshToken(): Observable<any> {
+  refreshToken(): Observable<any> {  
     const refreshToken = localStorage.getItem('refresh_token');
-    return this.http.post<any>(`${environment.apiUrl}/token/refresh/`, { refresh: refreshToken }).pipe(
+    return this.http.post<any>(`${environment.apiUrl}/user/token/refresh/`, { refresh: refreshToken }).pipe(
       map(res => {
         console.log(res);
         localStorage.setItem('access_token', res.access);

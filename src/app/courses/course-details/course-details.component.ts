@@ -26,6 +26,7 @@ export class CourseDetailsComponent implements OnInit {
     this.coursesService.getCourseDetails(this.courseId)
     .subscribe(data => {
       this.courseDetails = data;
+      console.log(data);
     });
   }
 
