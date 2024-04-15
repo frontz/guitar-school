@@ -11,8 +11,6 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { UserCoursesListComponent } from './user/user-courses-list/user-courses-list.component';
 import { BasketComponent } from './shop/basket/basket.component';
 import { CoursesModule } from './courses/courses.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './helpers/jwt-auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 import { ContactComponent } from './contact/contact/contact.component';

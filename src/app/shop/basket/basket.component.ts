@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class BasketComponent {
 
+  stripe = 'https://buy.stripe.com/test_5kAbLS83meXZdiw9AB'
+
 }
