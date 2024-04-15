@@ -51,9 +51,11 @@
           <li><a class="dropdown-item" [routerLink]="'/register'" *ngIf="user === null">Register</a></li>
           <li><a class="dropdown-item" [routerLink]="'/my-courses'" *ngIf="user !== null">My courses</a></li>
           <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;" *ngIf="user !== null">Logout</a></li>
+
+          
         </ul>
       </div>
-      <a class="nav-link" href="#" role="button" aria-expanded="false">
+      <a class="nav-link" [routerLink]="'/basket'" role="button" aria-expanded="false">
         <i class="bi bi-basket2"></i>
         <span class='badge badge-warning' id='lblCartCount'> 0 </span>
       </a>

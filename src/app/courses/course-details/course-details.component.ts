@@ -12,8 +12,7 @@ export class CourseDetailsComponent implements OnInit {
   courseDetails: any;
   courseId: any;
 
-  constructor(private coursesService: CoursesService, private activatedRoute: ActivatedRoute) {
-  }
+  constructor(private coursesService: CoursesService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.courseId = this.activatedRoute.snapshot.paramMap.get('id');

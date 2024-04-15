@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 import { ContactComponent } from './contact/contact/contact.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { YoutubeUrlPipe } from './helpers/sanitize.pipe';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     BasketComponent,
     UserCourseDetailsComponent,
     ContactComponent,
+    YoutubeUrlPipe,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     CoursesModule
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: LocationStrategy, useClass: HashLocationStrategy}, YoutubeUrlPipe
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

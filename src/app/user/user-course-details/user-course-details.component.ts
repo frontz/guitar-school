@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UserCoursesService } from 'src/app/services/user-courses.service';
 
@@ -8,6 +9,8 @@ import { UserCoursesService } from 'src/app/services/user-courses.service';
   styleUrls: ['./user-course-details.component.css']
 })
 export class UserCourseDetailsComponent implements AfterViewInit {
+
+  private sanitizer = inject(DomSanitizer);
 
   courseDetails: any;
   courseId: any;
