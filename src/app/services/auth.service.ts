@@ -12,8 +12,7 @@ export class AuthService {
 
   auth_token: any;
 
-  constructor(private http: HttpClient, private router: Router)  {
-  }
+  constructor(private http: HttpClient, private router: Router)  {}
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -25,7 +24,7 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiUrl}/user/token/`, {"username": username,  "password": password}, {headers: this.httpOptions.headers})
     .pipe(map(res => {
                 console.log(res);
-                localStorage.setItem('access_token', res.access);
+                localStorage.setItem('access_token', res.access  );
                 localStorage.setItem('refresh_token', res.refresh);
                 localStorage.setItem('user', res.user.first_name);
             }));

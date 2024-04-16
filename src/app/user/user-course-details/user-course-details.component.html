@@ -1,16 +1,5 @@
 <div class="container">
 
-
-  <!-- <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-    </ul>
-  </div> -->
     <div class="nav-item dropdown" style="margin-bottom: 20px;">
       <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Dropdown button
@@ -33,7 +22,7 @@
       <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <iframe width="420" height="315"
-          [src]="lesson.video[0].url | youtubeUrl">
+          [src]="lesson.video[0]?.url | youtubeUrl">
           </iframe>
           <ul>
             <ng-container *ngFor="let m of lesson.media">
