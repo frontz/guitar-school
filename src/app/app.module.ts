@@ -16,6 +16,7 @@ import { UserCourseDetailsComponent } from './user/user-course-details/user-cour
 import { ContactComponent } from './contact/contact/contact.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { YoutubeUrlPipe } from './helpers/sanitize.pipe';
+import { PaymentSuccessComponent } from './shop/payment-success/payment-success.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { YoutubeUrlPipe } from './helpers/sanitize.pipe';
     UserCourseDetailsComponent,
     ContactComponent,
     YoutubeUrlPipe,
+    PaymentSuccessComponent,
   ],
   imports: [
     BrowserModule,
