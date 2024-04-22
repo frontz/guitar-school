@@ -11,6 +11,7 @@ import { PaymentSuccessComponent } from './shop/payment-success/payment-success.
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/about', pathMatch: 'full' },
   { path: 'about', component:  AboutComponent },
   { path: 'login', component:  LoginFormComponent },
   { path: 'courses', component: CoursesListComponent },

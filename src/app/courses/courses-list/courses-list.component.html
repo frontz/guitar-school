@@ -13,8 +13,13 @@
           <p>Level: {{ course.level }}</p>
           <p class="card-text">{{ course.desc }} <br>
           <a routerLink="/course/{{ course.id }}" style="text-decoration: none; bottom: 10px;">More details >></a></p>
-          <p class="text-danger"> {{ course.price | currency: course.currency }}</p>      
-          <a class="btn btn-primary">Add to basket</a>
+          <p class="text-danger"> {{ course.price | currency: course.currency }}</p>     
+          <a href='{{ course.payment_link}}' *ngIf="course?.payment_link !== null && course?.payment_link !== ''">
+            <button class="btn btn-primary">Buy course</button>
+          </a>
+          <button class="btn btn-primary" disabled *ngIf="course?.payment_link === null || course?.payment_link === ''">   
+              Buy course    
+          </button>         
         </div>
       </div>
     </div>
