@@ -8,9 +8,10 @@ import { AuthGuard } from './helpers/auth.guard';
 import { UserCourseDetailsComponent } from './user/user-course-details/user-course-details.component';
 import { ContactComponent } from './contact/contact/contact.component';
 import { PaymentSuccessComponent } from './shop/payment-success/payment-success.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  { path: '', component:  CoursesListComponent },
+  { path: 'about', component:  AboutComponent },
   { path: 'login', component:  LoginFormComponent },
   { path: 'courses', component: CoursesListComponent },
   { path: 'course/:id', component: CourseDetailsComponent },
