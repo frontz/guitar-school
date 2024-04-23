@@ -9,6 +9,7 @@ import { UserCourseDetailsComponent } from './user/user-course-details/user-cour
 import { ContactComponent } from './contact/contact/contact.component';
 import { PaymentSuccessComponent } from './shop/payment-success/payment-success.component';
 import { AboutComponent } from './about/about.component';
+import { ChangePassComponent } from './auth/change-pass/change-pass.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'my-courses', component: UserCoursesListComponent, canActivate: [AuthGuard] },
   { path: 'my-course/:id', component: UserCourseDetailsComponent, canActivate: [AuthGuard] },
   { path: 'payment-success', component: PaymentSuccessComponent},
+  { path: 'change-pass', component: ChangePassComponent, canActivate: [AuthGuard] },
   { path: 'contact', component: ContactComponent },
 ];
 

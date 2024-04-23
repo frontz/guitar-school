@@ -54,6 +54,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="'/login'" *ngIf="user === '' || user === null">Login</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/change-pass'" style="cursor: pointer;" *ngIf="user !== null">Change password</a></li>   
           <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;" *ngIf="user !== null">Logout</a></li>          
         </ul>
       </div>

@@ -33,9 +33,8 @@ export class NavbarComponent  {
     return item.value;
   }
 
-  getCurrentUser() {
-    this.user = localStorage.getItem('user');
-    return this.user;
+  changePassword() {
+
   }
 
   logout() {

@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+        <form (ngSubmit)="changePass()">
+          <div class="input-group mb-3">
+          <span class="input-group-text" id="pass"
+          ><i class="bi bi-lock-fill"></i
+          ></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Old password"
+              name="oldPass"
+              [(ngModel)]="oldPass"
+            />
+          </div>
+      
+          <div class="input-group mb-3">
+          <span class="input-group-text" id="newPass"
+          ><i class="bi bi-lock-fill"></i
+          ></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="New password"
+              name="newPass"
+              [(ngModel)]="newPass"
+            />
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="confirmPass"
+            ><i class="bi bi-lock-fill"></i
+            ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Confirm password"
+                name="confirmPass"
+                [(ngModel)]="confirmPass"
+              />
+            </div>
+      
+          <div class="input-group mb-3">
+            <button
+              type="submit"
+              class="btn btn-info"
+              aria-label="Login"
+            >
+              Change password
+            </button>
+          </div>
+          <p *ngIf="confirmError" class="text-danger">New password are different than confirm password</p>
+          <p *ngIf="successMessage !== ''" class="text-success">{{ this.successMessage }}</p>
+          <p *ngIf="errorMessage !== ''" class="text-danger">{{ this.errorMessage }}</p>
+          </form>
+        </div>
+      </div>
+</div>
