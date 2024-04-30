@@ -29,7 +29,10 @@
           [(ngModel)]="password"
         />
       </div>
-  
+      <a [routerLink]="'/remind-password'" style="text-decoration: none;">
+        <p class="text-secondary text-end fw-lighter" id="forgot">Forgot your password?</p>
+      </a>
+      
       <div class="input-group mb-3">
         <button
           type="submit"
@@ -39,6 +42,7 @@
           Log in
         </button>
       </div>
+      
       <p *ngIf="loginError" class="text-danger">Incorrect login data...</p>
       </form>
     </div>

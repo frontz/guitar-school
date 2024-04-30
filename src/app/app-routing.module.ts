@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { PaymentSuccessComponent } from './shop/payment-success/payment-success.component';
 import { AboutComponent } from './about/about.component';
 import { ChangePassComponent } from './auth/change-pass/change-pass.component';
+import { RemindPasswordComponent } from './auth/remind-password/remind-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'my-course/:id', component: UserCourseDetailsComponent, canActivate: [AuthGuard] },
   { path: 'payment-success', component: PaymentSuccessComponent},
   { path: 'change-pass', component: ChangePassComponent, canActivate: [AuthGuard] },
+  { path: 'remind-password', component: RemindPasswordComponent },
   { path: 'contact', component: ContactComponent },
 ];
 
