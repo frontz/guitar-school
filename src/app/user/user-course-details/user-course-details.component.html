@@ -21,7 +21,10 @@
         </h2>
         <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <iframe width="320" height="180" class="d-block d-md-none" 
+            <iframe width="384" height="216" class="d-sm-none" 
+              [src]="lesson.video[0]?.url | youtubeUrl">
+            </iframe>
+            <iframe width="432" height="243" class="d-none d-sm-block d-md-none" 
               [src]="lesson.video[0]?.url | youtubeUrl">
             </iframe>
             <iframe width="640" height="360" class="d-none d-md-block"
