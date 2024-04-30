@@ -29,6 +29,9 @@ export class ChangePassComponent {
           console.log(res);
           this.successMessage = 'Password changed successfully';
           this.errorMessage = '';
+          this.oldPass = '';
+          this.newPass = '';
+          this.confirmPass = '';
         }, error => {
           console.log(error);
           this.errorMessage = 'Error occured';
