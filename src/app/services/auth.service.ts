@@ -74,6 +74,10 @@ export class AuthService {
     )
   }
 
+  sendPasswordResetLink(email: string) {
+    return this.http.post<any>(`${environment.apiUrl}/user/password/reset/`, {"email": email});
+  }
+
   logout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
