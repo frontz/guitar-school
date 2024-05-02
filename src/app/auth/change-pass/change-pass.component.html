@@ -41,6 +41,17 @@
                 [(ngModel)]="confirmPass"
               />
             </div>
+
+            <div class="requirements text-secondary">
+              <label>Password should have:</label>
+              <ul>
+                <li>At least one lowercase alphabet i.e. [a-z]</li>
+                <li>At least one uppercase alphabet i.e. [A-Z]</li>
+                <li>At least one Numeric digit i.e. [0-9]</li>
+                <li>At least one special character i.e. [‘@’, ‘$’, ‘.’, ‘#’, ‘!’, ‘%’, ‘*’, ‘?’, ‘&’, ‘^’]</li>
+                <li>Also, the total length must be in the range [8-15]</li>
+              </ul>
+            </div>
       
           <div class="input-group mb-3">
             <button
@@ -52,8 +63,9 @@
             </button>
           </div>
           <p *ngIf="confirmError" class="text-danger">New password are different than confirm password</p>
-          <p *ngIf="successMessage !== ''" class="text-success">{{ this.successMessage }}</p>
-          <p *ngIf="errorMessage !== ''" class="text-danger">{{ this.errorMessage }}</p>
+          <p *ngIf="errorPasswordFormat !== ''" class="text-danger">{{ errorPasswordFormat }}</p>
+          <p *ngIf="successMessage !== ''" class="text-success">{{ successMessage }}</p>
+          <p *ngIf="errorMessage !== ''" class="text-danger">{{ errorMessage }}</p>
           </form>
         </div>
       </div>

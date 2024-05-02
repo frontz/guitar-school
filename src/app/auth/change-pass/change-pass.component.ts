@@ -8,12 +8,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ChangePassComponent {
 
+  validator =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
   oldPass = '';
   newPass = '';
   confirmPass = '';
   confirmError = false;
   successMessage = '';
   errorMessage = '';
+  errorPasswordFormat = '';
 
   constructor(private authService: AuthService) {}
 
@@ -23,21 +25,25 @@ export class ChangePassComponent {
       this.successMessage = '';
       this.errorMessage = '';
     } else {
-      this.confirmError = false;
-      this.authService.changePassword(this.oldPass, this.newPass).subscribe(
-        res => {
-          console.log(res);
-          this.successMessage = 'Password changed successfully';
-          this.errorMessage = '';
-          this.oldPass = '';
-          this.newPass = '';
-          this.confirmPass = '';
-        }, error => {
-          console.log(error);
-          this.errorMessage = 'Error occured';
-          this.successMessage = '';
+      if (this.newPass.match(this.validator)) {
+        this.confirmError = false;
+        this.authService.changePassword(this.oldPass, this.newPass).subscribe(
+          res => {
+            console.log(res);
+            this.successMessage = 'Password changed successfully';
+            this.errorPasswordFormat = '';
+            this.errorMessage = '';
+            this.oldPass = '';
+            this.newPass = '';
+            this.confirmPass = '';
+          }, error => {
+            console.log(error);
+            this.errorMessage = 'Error occured';
+            this.successMessage = '';
+          })
+        } else {
+          this.errorPasswordFormat = 'Wrong password format';
         }
-      )
     }
   }
 
