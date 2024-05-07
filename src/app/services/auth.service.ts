@@ -78,6 +78,10 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiUrl}/user/password/reset/`, {"email": email});
   }
 
+  confirmPassword(newPassword: string, uuid: string, token: string) {
+    return this.http.post<any>(`${environment.apiUrl}/user/password/reset/confirm/`, {"new_password": newPassword, "uidb64": uuid, "token": token});
+  }
+
   logout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');

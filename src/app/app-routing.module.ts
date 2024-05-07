@@ -11,6 +11,7 @@ import { PaymentSuccessComponent } from './shop/payment-success/payment-success.
 import { AboutComponent } from './about/about.component';
 import { ChangePassComponent } from './auth/change-pass/change-pass.component';
 import { RemindPasswordComponent } from './auth/remind-password/remind-password.component';
+import { ConfirmPasswordComponent } from './auth/confirm-password/confirm-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'payment-success', component: PaymentSuccessComponent},
   { path: 'change-pass', component: ChangePassComponent, canActivate: [AuthGuard] },
   { path: 'remind-password', component: RemindPasswordComponent },
+  { path: 'confirm-password/:uuid/:token', component: ConfirmPasswordComponent },
   { path: 'contact', component: ContactComponent },
 ];
 

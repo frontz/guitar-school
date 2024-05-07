@@ -6,12 +6,14 @@ import { AuthService } from "../services/auth.service";
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { RemindPasswordComponent } from './remind-password/remind-password.component';
 import { RouterModule } from '@angular/router';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 
 @NgModule({
   declarations: [
     LoginFormComponent,
     ChangePassComponent,
     RemindPasswordComponent,
+    ConfirmPasswordComponent,
   ],
   imports: [
     CommonModule,
