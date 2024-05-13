@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-    <form (ngSubmit)="login(username, password)">
+    <form (ngSubmit)="login(email, password)">
       <div class="input-group mb-3">
       <span class="input-group-text" id="basic-addon1"
       ><i class="bi bi-person-fill"></i
@@ -11,9 +11,9 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Username"
-          name="user"
-          [(ngModel)]="username"
+          placeholder="E-mail"
+          name="email"
+          [(ngModel)]="email"
         />
       </div>
   
@@ -32,6 +32,7 @@
       <a [routerLink]="'/remind-password'" style="text-decoration: none;">
         <p class="text-secondary text-end fw-lighter" id="forgot">Forgot your password?</p>
       </a>
+      <p *ngIf="emailFormatError !== ''" class="text-danger">{{ emailFormatError }}</p>
       
       <div class="input-group mb-3">
         <button

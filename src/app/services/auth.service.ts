@@ -31,9 +31,9 @@ export class AuthService {
     localStorage.setItem(key, JSON.stringify(item));
   }
 
-  public login(username: string, password: string) {
+  public login(email: string, password: string) {
     
-    return this.http.post<any>(`${environment.apiUrl}/user/token/`, {"username": username,  "password": password})
+    return this.http.post<any>(`${environment.apiUrl}/user/login/`, {"email": email,  "password": password})
     .pipe(map(res => {
                 console.log(res);
                 localStorage.setItem('access_token', res.access  );
