@@ -24,13 +24,13 @@
         <input
           type="password"
           class="form-control"
-          placeholder="Password"
+          placeholder="Hasło"
           name="pass"
           [(ngModel)]="password"
         />
       </div>
       <a [routerLink]="'/remind-password'" style="text-decoration: none;">
-        <p class="text-secondary text-end fw-lighter" id="forgot">Forgot your password?</p>
+        <p class="text-secondary text-end fw-lighter" id="forgot">Zapomniałeś hasła?</p>
       </a>
       <p *ngIf="emailFormatError !== ''" class="text-danger">{{ emailFormatError }}</p>
       
@@ -40,11 +40,11 @@
           class="btn btn-info"
           aria-label="Login"
         >
-          Log in
+          Zaloguj
         </button>
       </div>
       
-      <p *ngIf="loginError" class="text-danger">Incorrect login data...</p>
+      <p *ngIf="loginError" class="text-danger">Błędne dane logowania...</p>
       </form>
     </div>
   </div>

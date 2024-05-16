@@ -22,13 +22,13 @@ export class RemindPasswordComponent {
         console.log(res);
         this.email = '';
         this.errorEmailFormatMessage = '';
-        this.successMessage = 'Reset password link has been sent';
+        this.successMessage = 'Link do zresetowania hasła został wysłany';
       }, error => {
         console.log(error);
       });
     } else {
       this.successMessage = '';
-      this.errorEmailFormatMessage = 'Wrong email format';
+      this.errorEmailFormatMessage = 'Nieprawidłowy format e-maila';
     }
   }
 

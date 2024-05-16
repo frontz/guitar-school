@@ -4,35 +4,35 @@
     <div class="row text-center">
       <div class="col-lg-12 col-sm-12 col-xs-12">
         <div>
-        <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Join for newsletter</button>
+        <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Zapisz się do newslettera</button>
           <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header bg-info">
-                  <h4 class="modal-title">Join for newsletter</h4>
+                  <h4 class="modal-title">Zapisz się do newslettera</h4>
                 </div>
                 <div class="modal-body">
                   <form (ngSubmit)="joinTheNews(name, email)">
                     <div class="input-group mb-3">
                       <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                      <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name" required minlength="3"/>
+                      <input type="text" class="form-control" placeholder="Imię" name="name" [(ngModel)]="name" required minlength="3"/>
                     </div>
 
                     <div class="input-group mb-3">
                       <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                      <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" />
+                      <input type="email" class="form-control" placeholder="E-mail" name="email" [(ngModel)]="email" />
                     </div>
 
                     <div class="input-group mb-3">
                       <button type="submit" class="btn btn-info" aria-label="Join">
-                        Join!
+                        Dołącz
                       </button>
                     </div>
-                    <p class="text-success" *ngIf="success">You have joined the news!</p>
+                    <p class="text-success" *ngIf="success">Dołączyłeś do newslettera!</p>
                   </form>
                 </div>
                 <div class="modal-footer bg-info">
-                  <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                  <button type="button" class="btn btn-default" (click)="onCloseHandled()">Zamknij</button>
                   
                 </div>
               </div>
@@ -40,15 +40,15 @@
           </div>
         <div class="footer_menu">
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="#">O nas</a></li>
             <li><a [routerLink]="'/courses'"
-              >Our Curses</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Contact</a></li>
+              >Nasze kursy</a></li>
+            <li><a href="#">Cennik</a></li>
+            <li><a href="#">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer_copyright">
-          <p style="color: gray;">© 2024 Guitar School All Rights Reserved.</p>
+          <p style="color: gray;">© 2024 Guitar School - Wszelkie prawa zastrzeżone.</p>
         </div>
         <div class="footer_profile">
           <ul>

@@ -28,7 +28,7 @@ export class LoginFormComponent {
           this.loginError = true;
         });
     } else {
-      this.emailFormatError = 'Wrong email format';
+      this.emailFormatError = 'Nieprawidłowy format e-maila';
     }
   }
 }

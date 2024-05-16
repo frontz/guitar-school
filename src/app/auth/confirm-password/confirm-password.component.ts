@@ -61,7 +61,7 @@ export class ConfirmPasswordComponent implements OnInit {
 
   validationPassword(pass: string, confirm: string) {
     if (pass !== confirm) {
-      this.comparePass = 'Passwords are not the same';
+      this.comparePass = 'Hasła nie są takie same';
       return false;
     } else {
       this.comparePass = '';
@@ -76,17 +76,17 @@ export class ConfirmPasswordComponent implements OnInit {
         console.log(this.newPassword, this.uuid, this.token);
         this.auth.confirmPassword(this.newPassword, this.uuid, this.token).subscribe(
           res => {
-            this.successMessage = 'Password has been changed succesfully';
+            this.successMessage = 'Hasło zostało pomyślnie zmienione';
             this.newPassword = '';
             this.confirmNewPassword = '';
           }, error => {
-            this.errorMessage = 'Error occured';
+            this.errorMessage = 'Wystąpił błąd';
             console.error(error);
           }
         );
       } else {
         this.comparePass = '';
-        this.validationPassFormat = 'Wrong password format';
+        this.validationPassFormat = 'Nieprawidłowy format hasła';
       }
     }
   }

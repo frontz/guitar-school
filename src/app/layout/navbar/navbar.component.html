@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" [routerLink]="'/about'" aria-current="page">About us</a>
+          <a class="nav-link active" [routerLink]="'/about'" aria-current="page">O nas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/courses'">Our courses</a>
+          <a class="nav-link" [routerLink]="'/courses'">Nasze kursy</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -29,22 +29,22 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Pricing
+            Cennik
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Subscribe plan</a></li>
-            <li><a class="dropdown-item" href="#">Promotions</a></li>
+            <li><a class="dropdown-item" href="#">Plan subskrybcji</a></li>
+            <li><a class="dropdown-item" href="#">Promocje</a></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/contact'">Contact</a>
+          <a class="nav-link" [routerLink]="'/contact'">Kontakt</a>
         </li>
 
       </ul>
       <div class="nav-item" style="margin-right: 20px;">
           <a class="nav-link" [routerLink]="'/my-courses'" role="button" aria-expanded="false" *ngIf="user !== null">
-            My courses
+            Moje kursy
           </a>
       </div>
       
@@ -53,16 +53,15 @@
           <i class="bi bi-person-fill"><span> {{ getWithExpiry('user') }} </span></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="'/login'" *ngIf="user === '' || user === null">Login</a></li>
-          <li><a class="dropdown-item" [routerLink]="'/change-pass'" style="cursor: pointer;" *ngIf="user !== null">Change password</a></li>   
-          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;" *ngIf="user !== null">Logout</a></li>          
+          <li><a class="dropdown-item" [routerLink]="'/login'" *ngIf="user === '' || user === null">Zaloguj</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/change-pass'" style="cursor: pointer;" *ngIf="user !== null">Zmień hasło</a></li>   
+          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;" *ngIf="user !== null">Wyloguj</a></li>          
         </ul>
       </div>
       <!-- <a class="nav-link" [routerLink]="'/basket'" role="button" aria-expanded="false">
         <i class="bi bi-basket2"></i>
         <span class='badge badge-warning' id='lblCartCount'> 0 </span>
       </a> -->
-
     </div>
   </div>
 </nav>
