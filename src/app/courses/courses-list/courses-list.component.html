@@ -14,11 +14,11 @@
           <p class="card-text">{{ course.desc }} <br>
           <a routerLink="/course/{{ course.id }}" style="text-decoration: none; bottom: 10px;">Więcej szczegółów >></a></p>
           <p class="text-danger"> {{ course.price | currency: course.currency }}</p>     
-          <a href='{{ course.payment_link}}' *ngIf="course?.payment_link !== null && course?.payment_link !== ''">
+          <a href='{{ course.payment_link}}' *ngIf="course?.active === true">
             <button class="btn btn-primary">Kup kurs</button>
           </a>
-          <button class="btn btn-primary" disabled *ngIf="course?.payment_link === null || course?.payment_link === ''">   
-            Kup kurs  
+          <button class="btn btn-primary" disabled *ngIf="course?.active !== true">   
+            Dostępny wkrótce  
           </button>         
         </div>
       </div>
