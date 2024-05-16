@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CourseDetailsComponent implements OnInit {
 
   courseDetails: any;
+  linkToBuy = '';
   courseId: any;
 
   constructor(private coursesService: CoursesService, private activatedRoute: ActivatedRoute) {}
@@ -28,5 +29,6 @@ export class CourseDetailsComponent implements OnInit {
       console.log(data);
     });
   }
+
 
 }

@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ConfirmPasswordComponent implements OnInit {
 
   validator =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+  
   url = '';
   pattern = 'confirm-password/';
   uuid = '';
