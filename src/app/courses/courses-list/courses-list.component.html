@@ -12,10 +12,14 @@
             <img src="assets/img/face.jpg" style="width: 40px; float: right;"></p><br>
           <p>Level: {{ course.level }}</p>
           <p class="card-text">{{ course.desc }} <br>
-          <a routerLink="/course/{{ course.id }}" style="text-decoration: none; bottom: 10px;">Więcej szczegółów >></a></p>
-          <p class="text-danger"> {{ course.price | currency: course.currency }}</p>     
+            <a routerLink="/course/{{ course.id }}" style="text-decoration: none; bottom: 10px;" *ngIf="!idsUserCoursesList.includes(course.id)">Więcej szczegółów >></a>
+          </p>
+          <p class="text-danger" *ngIf="!idsUserCoursesList.includes(course.id)"> {{ course.price | currency: course.currency }}</p>     
           <a href='{{ course.payment_link}}' *ngIf="course?.active === true">
-            <button class="btn btn-primary">Kup kurs</button>
+            <button class="btn btn-primary" *ngIf="!idsUserCoursesList.includes(course.id)">Kup kurs</button>
+          </a>
+          <a *ngIf="course?.active === true">
+            <button class="btn btn-primary" routerLink="/my-course/{{ course.id }}" *ngIf="idsUserCoursesList.includes(course.id)">Idź do kursu</button>
           </a>
           <button class="btn btn-primary" disabled *ngIf="course?.active !== true">   
             Dostępny wkrótce  

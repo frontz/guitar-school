@@ -1,1 +1,3 @@
 course-detail - brak linka zakupowego w modelu
+
+wiadomość po zakupie kursu jest po angielsku

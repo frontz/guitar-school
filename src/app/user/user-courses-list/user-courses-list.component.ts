@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { UserCoursesService } from '../../services/user-courses.service';
+import { CoursesService } from 'src/app/services/courses.service';
 
 @Component({
   selector: 'app-user-courses-list',
@@ -8,7 +9,8 @@ import { UserCoursesService } from '../../services/user-courses.service';
 })
 export class UserCoursesListComponent implements OnInit {
 
-  myCourses: any;
+  myCourses: any = [];
+  
 
   constructor(private userCoursesService: UserCoursesService) {}
 
@@ -16,7 +18,8 @@ export class UserCoursesListComponent implements OnInit {
     this.userCoursesService.getMyCourses().subscribe(data => {
       this.myCourses = data;
       console.log(this.myCourses);
-    });
+  });
+  
   }
-
 }
+

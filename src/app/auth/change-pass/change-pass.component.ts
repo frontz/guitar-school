@@ -30,7 +30,7 @@ export class ChangePassComponent {
         this.authService.changePassword(this.oldPass, this.newPass).subscribe(
           res => {
             console.log(res);
-            this.successMessage = 'Password changed successfully';
+            this.successMessage = 'Hasło zostało pomyślnie zmienione';
             this.errorPasswordFormat = '';
             this.errorMessage = '';
             this.oldPass = '';
@@ -38,11 +38,11 @@ export class ChangePassComponent {
             this.confirmPass = '';
           }, error => {
             console.log(error);
-            this.errorMessage = 'Error occured';
+            this.errorMessage = 'Wydarzył się błąd';
             this.successMessage = '';
           })
         } else {
-          this.errorPasswordFormat = 'Wrong password format';
+          this.errorPasswordFormat = 'Nieprawidłowy format hasła';
         }
     }
   }

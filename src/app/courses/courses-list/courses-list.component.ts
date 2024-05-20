@@ -1,24 +1,48 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
+import { UserCoursesService } from 'src/app/services/user-courses.service';
 
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']
 })
-export class CoursesListComponent implements OnInit {
+export class CoursesListComponent implements OnInit, AfterContentChecked {
 
   coursesList: any = [];
+  userCoursesList: any = [];
+  idsCoursesList: number[] = [];
+  idsUserCoursesList: number[] = [];
+  constructor(private coursesService: CoursesService, private userCoursesService: UserCoursesService) {}
 
-  constructor(private coursesService: CoursesService) {}
+  async ngOnInit(): Promise<void> {
+    this.getCoursesList().then(await this.getUserCoursesList());
+  }
 
-  ngOnInit(): void {
-    this.coursesList = this.coursesService.getCourses().subscribe(data => {
+  ngAfterContentChecked(): void {
+    this.idsCoursesList = this.coursesList.map((object: { id: any; }) => object.id);
+    this.idsUserCoursesList = this.userCoursesList.map((object: { id: any; }) => object.id);
+    console.log(this.idsCoursesList);
+    console.log(this.idsUserCoursesList);
+  }
+
+  getCoursesList(): Promise<any> {
+    this.coursesService.getCourses().subscribe(data => {
       this.coursesList = data;
       console.log(this.coursesList);
+      console.log('---------------------');
     });
-
+    return new Promise(this.coursesList);
   }
+
+  getUserCoursesList(): Promise<any> {
+    this.userCoursesService.getMyCourses().subscribe(data => {
+      this.userCoursesList = data;
+      console.log(this.userCoursesList);
+    });
+    return new Promise(this.userCoursesList);
+  }
+
 
 }
 

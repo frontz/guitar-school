@@ -10,7 +10,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Old password"
+              placeholder="Stare hasło"
               name="oldPass"
               [(ngModel)]="oldPass"
             />
@@ -23,7 +23,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="New password"
+              placeholder="Nowe hasło"
               name="newPass"
               [(ngModel)]="newPass"
             />
@@ -36,20 +36,20 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Confirm password"
+                placeholder="Potwierdź nowe hasło"
                 name="confirmPass"
                 [(ngModel)]="confirmPass"
               />
             </div>
 
             <div class="requirements text-secondary">
-              <label>Password should have:</label>
+              <label>Hasło powinno zawierać:</label>
               <ul>
-                <li>At least one lowercase alphabet i.e. [a-z]</li>
-                <li>At least one uppercase alphabet i.e. [A-Z]</li>
-                <li>At least one Numeric digit i.e. [0-9]</li>
-                <li>At least one special character i.e. [‘@’, ‘$’, ‘.’, ‘#’, ‘!’, ‘%’, ‘*’, ‘?’, ‘&’, ‘^’]</li>
-                <li>Also, the total length must be in the range [8-15]</li>
+                <li>Przynajmniej jedną małą literę [a-z]</li>
+                <li>Przynajmniej jedną wielką literę [A-Z]</li>
+                <li>Przynajmniej jeden numer [0-9]</li>
+                <li>Znak specjalny [‘@’, ‘$’, ‘.’, ‘#’, ‘!’, ‘%’, ‘*’, ‘?’, ‘&’, ‘^’]</li>
+                <li>Długość między 8 a 15 znaków</li>
               </ul>
             </div>
       
@@ -59,10 +59,10 @@
               class="btn btn-info"
               aria-label="Login"
             >
-              Change password
+              Zmień hasło
             </button>
           </div>
-          <p *ngIf="confirmError" class="text-danger">New password are different than confirm password</p>
+          <p *ngIf="confirmError" class="text-danger">Hasła nie są takie same</p>
           <p *ngIf="errorPasswordFormat !== ''" class="text-danger">{{ errorPasswordFormat }}</p>
           <p *ngIf="successMessage !== ''" class="text-success">{{ successMessage }}</p>
           <p *ngIf="errorMessage !== ''" class="text-danger">{{ errorMessage }}</p>
