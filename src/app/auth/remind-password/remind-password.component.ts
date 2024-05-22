@@ -16,9 +16,9 @@ export class RemindPasswordComponent {
   successMessage = '';
   errorMessage = '';
 
-  remindPassword(email: string) {
-    if (email.trim().match(this.validator)) {
-      this.auth.sendPasswordResetLink(email).subscribe(res => {
+  remindPassword() {
+    if (this.email.trim().match(this.validator)) {
+      this.auth.sendPasswordResetLink(this.email).subscribe(res => {
         console.log(res);
         this.email = '';
         this.errorEmailFormatMessage = '';

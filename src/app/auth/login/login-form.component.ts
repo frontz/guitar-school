@@ -18,6 +18,7 @@ export class LoginFormComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
+    this.emailFormatError = '';
     if (this.email.trim().match(this.validator)) {
       this.authService.login(this.email, this.password).subscribe(result => {
         console.log(result);
