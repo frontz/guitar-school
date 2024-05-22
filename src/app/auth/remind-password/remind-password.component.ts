@@ -11,13 +11,13 @@ export class RemindPasswordComponent {
   constructor(private auth: AuthService) {}
 
   email: any;
-  validator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  validator = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   errorEmailFormatMessage = '';
   successMessage = '';
   errorMessage = '';
 
   remindPassword(email: string) {
-    if (email.match(this.validator)) {
+    if (email.trim().match(this.validator)) {
       this.auth.sendPasswordResetLink(email).subscribe(res => {
         console.log(res);
         this.email = '';

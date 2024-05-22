@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { UserCoursesService } from 'src/app/services/user-courses.service';
 
@@ -13,7 +13,9 @@ export class CoursesListComponent implements OnInit, AfterContentChecked {
   userCoursesList: any = [];
   idsCoursesList: number[] = [];
   idsUserCoursesList: number[] = [];
+
   constructor(private coursesService: CoursesService, private userCoursesService: UserCoursesService) {}
+  
 
   async ngOnInit(): Promise<void> {
     this.getCoursesList().then(await this.getUserCoursesList());
