@@ -9,7 +9,7 @@ import { UserCoursesService } from 'src/app/services/user-courses.service';
 })
 export class UserCourseDetailsComponent implements AfterViewInit {
 
-  courseDetails: any;
+  userCourseDetails: any;
   courseId: any;
   currentPage = 1;
   disabled = true;
@@ -26,8 +26,8 @@ export class UserCourseDetailsComponent implements AfterViewInit {
   getDetails  () {
     this.userCoursesService.getMyCourseDetails(this.courseId)
     .subscribe(data => {
-      this.courseDetails = data;
-      console.log(this.courseDetails);
+      this.userCourseDetails = data;
+      console.log(this.userCourseDetails);
     });
   }
 

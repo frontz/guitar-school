@@ -1,6 +1,11 @@
 <div class="container">
   <h3 *ngIf="myCourses.length > 0; else noCourses">My courses</h3>
   <ng-template #noCourses><h4>You haven't bought any courses yet</h4></ng-template>
+  <div class="d-flex justify-content-center" *ngIf="myCourses.length === 0">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-4" *ngFor="let myCourse of myCourses">
       <div class="card">
@@ -16,7 +21,7 @@
           <p>Level: {{ myCourse?.level }}</p>
           <p class="card-text">{{ myCourse?.desc }}
           </p>
-          <a class="btn btn-primary" routerLink="/my-course/{{ myCourse.id }}">Go to course</a>
+          <a class="btn btn-primary" routerLink="/my-course/{{ myCourse.id }}">Idź do kursu</a>
         </div>
       </div>
     </div>
