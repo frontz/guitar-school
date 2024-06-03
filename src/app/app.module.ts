@@ -39,7 +39,7 @@ import { PaymentSuccessComponent } from './shop/payment-success/payment-success.
     FormsModule,
     AppRoutingModule,
     AuthModule,
-    CoursesModule
+    CoursesModule,
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}, YoutubeUrlPipe

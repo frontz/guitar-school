@@ -1,4 +1,8 @@
 .card {
     margin-bottom: 30px;
-  }
+}
+
+img {
+  max-height: 270px;
+}
 
