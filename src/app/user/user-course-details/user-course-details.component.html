@@ -17,6 +17,8 @@
       </ul>
     </div>
 
+    <p class="module-desc">{{ userCourseDetails?.modules[currentPage]?.desc }}</p>  
+
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item" *ngFor="let lesson of userCourseDetails?.modules[currentPage].lessons; let i = index">
         <h2 class="accordion-header" id="flush-headingOne">
@@ -26,7 +28,10 @@
         </h2>
         <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <iframe width="320" height="180" class="d-sm-none" 
+
+            <ng-container *ngIf="lesson.video.length === 1">
+              <p>{{ lesson.desc }}</p>
+              <iframe width="320" height="180" class="d-sm-none" 
               [src]="lesson.video[0]?.url | youtubeUrl">
             </iframe>
             <iframe width="432" height="243" class="d-none d-sm-block d-md-none" 
@@ -34,11 +39,27 @@
             </iframe>
             <iframe width="640" height="360" class="d-none d-md-block"
               [src]="lesson.video[0]?.url | youtubeUrl">
-            </iframe>        
+            </iframe>   
+            </ng-container>
+
+            <ng-container *ngIf="lesson.video.length > 1">
+              <div *ngFor="let video of lesson.video" style="margin-bottom: 20px;">
+                <iframe width="320" height="180" class="d-sm-none" 
+                [src]="lesson.video[0]?.url | youtubeUrl">
+              </iframe>
+              <iframe width="432" height="243" class="d-none d-sm-block d-md-none" 
+                [src]="lesson.video[0]?.url | youtubeUrl">
+              </iframe>
+              <iframe width="640" height="360" class="d-none d-md-block"
+                [src]="lesson.video[0]?.url | youtubeUrl">
+              </iframe>   
+              </div>
+            </ng-container>
+                 
           <ul>
             <ng-container *ngFor="let m of lesson.media">
-              <a href='{{m.url}}' *ngIf="m.type == 'zip'"> {{ m.filename }} <br></a>
-              <a href='{{m.url}}' target ="_blank" *ngIf="m.type == 'pdf'"> {{ m.filename }} <br></a>
+              <a href='{{m.url}}' *ngIf="m.type === 'pdf'" target ="_blank"> {{ m.filename }} <br></a>
+              <a href='{{m.url}}' *ngIf="m.type !== 'pdf'"> {{ m.filename }} <br></a>
             </ng-container>
           </ul>
           </div>

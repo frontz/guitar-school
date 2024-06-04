@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { UserCoursesService } from 'src/app/services/user-courses.service';
 
@@ -7,7 +7,7 @@ import { UserCoursesService } from 'src/app/services/user-courses.service';
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']
 })
-export class CoursesListComponent implements OnInit, AfterContentChecked {
+export class CoursesListComponent implements OnInit, AfterViewChecked {
 
   coursesList: any = [];
   userCoursesList: any = [];
@@ -21,10 +21,12 @@ export class CoursesListComponent implements OnInit, AfterContentChecked {
     this.getCoursesList().then(await this.getUserCoursesList());
   }
 
-  ngAfterContentChecked(): void {
+  ngAfterViewChecked(): void {
     this.idsCoursesList = this.coursesList.map((object: { id: any; }) => object.id);
     this.idsUserCoursesList = this.userCoursesList.map((object: { id: any; }) => object.id);
+    console.log('Kursy ids:');
     console.log(this.idsCoursesList);
+    console.log('Kursy użytkownika ids:');
     console.log(this.idsUserCoursesList);
   }
 

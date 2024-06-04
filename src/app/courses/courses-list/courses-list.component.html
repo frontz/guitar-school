@@ -27,11 +27,11 @@
           <p *ngIf="idsUserCoursesList.includes(course.id)">
             Możesz przejść do materiałów
           </p>   
-          <a href='{{ course.payment_link}}' *ngIf="course?.active === true">
-            <button class="btn btn-primary" *ngIf="!idsUserCoursesList.includes(course.id)">Kup kurs</button>
+          <a href='{{ course.payment_link}}' *ngIf="course?.active === true"> 
+            <button class="btn btn-primary" *ngIf="!idsUserCoursesList?.includes(course?.id)">Kup kurs</button> 
           </a>
           <a *ngIf="course?.active === true">
-            <button class="btn btn-primary" routerLink="/my-course/{{ course.id }}" *ngIf="idsUserCoursesList.includes(course.id)">Idź do kursu</button>
+            <button class="btn btn-primary" routerLink="/my-course/{{ course?.id }}"  *ngIf="idsUserCoursesList.includes(course.id)">Idź do kursu</button>
           </a>
           <button class="btn btn-primary" disabled *ngIf="course?.active !== true">   
             Dostępny wkrótce  

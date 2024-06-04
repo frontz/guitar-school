@@ -9,3 +9,9 @@
 .dropdown-menu {
   width: 100%;
 }
+
+.module-desc {
+  margin: 20px;
+  font-size: larger;
+  text-align: justify;
+}
