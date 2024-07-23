@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "guitar-school:build:production"
+              "buildTarget": "guitar-school:build:production"
             },
             "development": {
-              "browserTarget": "guitar-school:build:development"
+              "buildTarget": "guitar-school:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "guitar-school:build"
+            "buildTarget": "guitar-school:build"
           }
         },
         "test": {
